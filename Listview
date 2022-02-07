@@ -1,0 +1,55 @@
+LIST VIEW
+ MAIN ACTIVITY.JAVA
+
+package com.example.list_view;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+   ListView l;
+   String[]p={"Raendra Prasad(1884-1975)","Sarvepalli Radhakrishnan(1888-1975)","Zakir Hussain(1897-1969)",
+           "Varahagiri Venkata Giri(1894-1980)","Fakhruddin Ali Ahmed(1905-1977)","Neelam sanjiva Reddy(1913-1996)",
+           "Giani Zali Singh(1916-1994)","Shankar Dayal Sharma(1918-1999)","APJ Abdul Kalam(1931-2015)",
+           "pratibha patil(1934-)"}
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       l=(ListView)findViewById(R.id.list);
+       ArrayAdapter<String>adapter;
+       adapter=new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,p);
+       l.setAdapter((adapter));
+       l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+           @Override
+           public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               Toast.makeText(getBaseContext(),p[position],Toast.LENGTH_LONG).show();
+           }
+       });
+
+   }
+}
+XML CODE LIST VIEW:
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+   <ListView
+       android:id="@+id/list"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="Hello World!"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+</RelativeLayout>

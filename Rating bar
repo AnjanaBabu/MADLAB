@@ -1,0 +1,79 @@
+Rating bar
+Activitymain
+
+package com.example.ratingbar;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.RatingBar;
+import android.widget.Button;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+RatingBar rt;
+Button b1;
+TextView tv;
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       rt=(RatingBar)findViewById(R.id.rb);
+       b1=(Button)findViewById(R.id.b1);
+       tv=(TextView)findViewById(R.id.tv);
+       b1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               float stars=rt.getRating();
+               tv.setText("Rating:"+stars);
+           }
+       });
+
+       }
+   }
+
+
+Xml:
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+   <TextView
+       android:id="@+id/tv"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.856" />
+
+   <RatingBar
+       android:id="@+id/rb"
+       android:layout_width="246dp"
+       android:layout_height="67dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.363"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.271" />
+
+   <Button
+       android:id="@+id/b1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="click"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.452"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.421" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

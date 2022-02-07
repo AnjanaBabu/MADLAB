@@ -1,0 +1,74 @@
+IMAGE BUTTON
+JAVA CODE:
+
+package com.example.imagebutton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
+
+
+public class MainActivity extends AppCompatActivity {
+   ImageButton ib;
+   TextView tv;
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       ib=findViewById(R.id.ib);
+       tv=findViewById(R.id.tv);
+       ib.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Toast.makeText(getApplicationContext(),"your image is shown...",Toast.LENGTH_LONG).show();
+           }
+       });
+
+   }
+}
+
+
+
+
+
+
+Image XML:
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:visibility="visible"
+   tools:context=".MainActivity"
+   tools:visibility="visible">
+
+   <TextView
+       android:id="@+id/tv"
+       android:layout_width="135dp"
+       android:layout_height="61dp"
+       android:layout_marginBottom="244dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent" />
+
+   <ImageButton
+       android:id="@+id/ib"
+       android:layout_width="240dp"
+       android:layout_height="201dp"
+       android:layout_marginTop="104dp"
+       android:src="@android:drawable/dialog_holo_dark_frame"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.467"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       tools:srcCompat="@tools:sample/avatars" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

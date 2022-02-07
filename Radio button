@@ -1,0 +1,87 @@
+Radiobutton;
+Java code:
+
+
+package com.example.radiobutton;
+import android.graphics.Color;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+   private RadioButton rb,rb1;
+   private Button bt;
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       rb=findViewById(R.id.rb);
+       rb1=findViewById(R.id.rb1);
+       bt=findViewById(R.id.bt);
+       bt.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               if(rb.isChecked()) {
+                   Toast.makeText(getApplicationContext(), "" + rb.getText().toString(), Toast.LENGTH_SHORT).show();
+               }
+               else if (rb1.isChecked()){
+                   Toast.makeText(getApplicationContext(),"" + rb1.getText().toString(),Toast.LENGTH_SHORT).show();
+               }
+           }
+       });
+   }
+}
+
+
+Radio XML:
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+   <RadioGroup
+       android:id="@+id/radioGroup"
+       android:layout_width="282dp"
+       android:layout_height="189dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.364"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.132">
+
+       <RadioButton
+           android:id="@+id/rb"
+           android:layout_width="match_parent"
+           android:layout_height="92dp"
+           android:text="Male" />
+
+       <RadioButton
+           android:id="@+id/rb1"
+           android:layout_width="match_parent"
+           android:layout_height="98dp"
+           android:text="Female" />
+   </RadioGroup>
+
+   <Button
+       android:id="@+id/bt"
+       android:layout_width="177dp"
+       android:layout_height="79dp"
+       android:text="Submit"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.437"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.499" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

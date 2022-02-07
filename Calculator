@@ -1,0 +1,469 @@
+Calculator:
+Main activity:
+
+package com.example.calculator;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+   Button b1,b2,b3,b4;
+   TextView tv;
+   EditText et1,et2;
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+     et1=(EditText)findViewById(R.id.et1);
+     et2=(EditText)findViewById(R.id.et2);
+     b1=(Button)findViewById(R.id.b1);
+     b2=(Button)findViewById(R.id.b2);
+     b3=(Button)findViewById(R.id.b3);
+     b4=(Button)findViewById(R.id.b4);
+     tv=(TextView)findViewById(R.id.tv);
+     b1.setOnClickListener(new View.OnClickListener() {
+
+         @Override
+         public void onClick(View v) {
+             Integer a=Integer.parseInt(et1.getText().toString());
+             Integer b=Integer.parseInt(et2.getText().toString());
+             Integer c=a+b;
+             tv.setText(Integer.toString(c));
+
+         }
+     });
+     b2.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Integer a=Integer.parseInt(et1.getText().toString());
+             Integer b=Integer.parseInt(et2.getText().toString());
+             Integer c=a-b;
+             tv.setText(Integer.toString(c));
+
+         }
+     });
+     b3.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Integer a=Integer.parseInt(et1.getText().toString());
+             Integer b=Integer.parseInt(et2.getText().toString());
+             Integer c=a*b;
+             tv.setText(Integer.toString(c));
+
+         }
+     });
+     b4.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+             Integer a=Integer.parseInt(et1.getText().toString());
+             Integer b=Integer.parseInt(et2.getText().toString());
+             Integer c=a/b;
+             tv.setText(Integer.toString(c));
+
+         }
+     });
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+calculator c Xml code:
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+   <TextView
+       android:id="@+id/tv"
+       android:layout_width="240dp"
+       android:layout_height="65dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintHorizontal_bias="0.27"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.954" />
+
+   <EditText
+       android:id="@+id/et1"
+       android:layout_width="229dp"
+       android:layout_height="72dp"
+       android:layout_marginStart="76dp"
+       android:layout_marginLeft="76dp"
+       android:ems="10"
+       android:inputType="numberSigned"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.08" />
+
+   <EditText
+       android:id="@+id/et2"
+       android:layout_width="223dp"
+       android:layout_height="75dp"
+       android:layout_marginStart="76dp"
+       android:layout_marginLeft="76dp"
+       android:ems="10"
+       android:inputType="numberSigned"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.211" />
+
+   <Button
+       android:id="@+id/b1"
+       android:layout_width="143dp"
+       android:layout_height="75dp"
+       android:text="+"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.317"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="@+id/et1"
+       app:layout_constraintVertical_bias="0.304" />
+
+   <Button
+       android:id="@+id/b2"
+       android:layout_width="137dp"
+       android:layout_height="82dp"
+       android:layout_marginStart="120dp"
+       android:layout_marginLeft="120dp"
+       android:text="_"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+   <Button
+       android:id="@+id/b3"
+       android:layout_width="142dp"
+       android:layout_height="92dp"
+       android:text="*"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.319"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.646" />
+
+   <Button
+       android:id="@+id/b4"
+       android:layout_width="138dp"
+       android:layout_height="80dp"
+       android:layout_marginStart="124dp"
+       android:layout_marginLeft="124dp"
+       android:text="/"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.796" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+Calculator linear layout
+Mainactyivity:
+
+
+package com.example.calculatorl;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.EditText;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity {
+   TextView tv;
+   EditText e1,e2;
+   Button b1,b2,b3,b4;
+
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       tv=(TextView)findViewById(R.id.tv);
+       e1=(EditText)findViewById(R.id.e1);
+       e2=(EditText)findViewById(R.id.e2);
+       b1=(Button)findViewById(R.id.b1);
+       b2=(Button)findViewById(R.id.b2);
+       b3=(Button)findViewById(R.id.b3);
+       b4=(Button)findViewById(R.id.b4);
+       b1.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Integer a=Integer.parseInt(e1.getText().toString());
+               Integer b=Integer.parseInt(e2.getText().toString());
+               Integer c=a+b;
+               tv.setText(Integer.toString(c));
+
+           }
+       });
+       b2.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Integer a=Integer.parseInt(e1.getText().toString());
+               Integer b=Integer.parseInt(e2.getText().toString());
+               Integer c=a-b;
+               tv.setText(Integer.toString(c));
+           }
+       });
+       b3.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Integer a=Integer.parseInt(e1.getText().toString());
+               Integer b=Integer.parseInt(e2.getText().toString());
+               Integer c=a*b;
+               tv.setText(Integer.toString(c));
+           }
+       });
+       b4.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Integer a=Integer.parseInt(e1.getText().toString());
+               Integer b=Integer.parseInt(e2.getText().toString());
+               Integer c=a/b;
+               tv.setText(Integer.toString(c));
+           }
+       });
+   }
+}
+
+
+clcu l xmlcode:
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:orientation="vertical"
+   tools:context=".MainActivity">
+
+   <TextView
+       android:id="@+id/tv"
+       android:layout_width="match_parent"
+       android:layout_height="114dp"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintHorizontal_bias="0.473"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintVertical_bias="0.935" />
+
+   <EditText
+       android:id="@+id/e1"
+       android:layout_width="match_parent"
+       android:layout_height="80dp"
+       android:ems="10"
+       android:inputType="numberSigned" />
+
+   <EditText
+       android:id="@+id/e2"
+       android:layout_width="match_parent"
+       android:layout_height="84dp"
+       android:ems="10"
+       android:inputType="numberSigned" />
+
+   <Button
+       android:id="@+id/b1"
+       android:layout_width="157dp"
+       android:layout_height="99dp"
+       android:text="+" />
+
+   <Button
+       android:id="@+id/b2"
+       android:layout_width="157dp"
+       android:layout_height="91dp"
+       android:text="-" />
+
+   <Button
+       android:id="@+id/b3"
+       android:layout_width="157dp"
+       android:layout_height="99dp"
+       android:text="*" />
+
+   <Button
+       android:id="@+id/b4"
+       android:layout_width="157dp"
+       android:layout_height="91dp"
+       android:text="/" />
+
+</LinearLayout>
+
+
+Calculator grid layout
+
+Activity main:
+
+package com.example.calculatorg;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import com.example.calculatorg.R;
+
+public class MainActivity extends AppCompatActivity {
+   Button b1,b2,b3,b4;
+   TextView tv;
+   EditText et1,et2;
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       et1=(EditText)findViewById(R.id.e1);
+       et2=(EditText)findViewById(R.id.e2);
+       b1=(Button)findViewById(R.id.b1);
+       b2=(Button)findViewById(R.id.b2);
+       b3=(Button)findViewById(R.id.b3);
+       b4=(Button)findViewById(R.id.b4);
+       tv=(TextView)findViewById(R.id.tv);
+       b1.setOnClickListener(new View.OnClickListener() {
+
+           @Override
+           public void onClick(View v) {
+               Integer a=Integer.parseInt(et1.getText().toString());
+               Integer b=Integer.parseInt(et2.getText().toString());
+               Integer c=a+b;
+               tv.setText(Integer.toString(c));
+
+           }
+       });
+       b2.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Integer a=Integer.parseInt(et1.getText().toString());
+               Integer b=Integer.parseInt(et2.getText().toString());
+               Integer c=a-b;
+               tv.setText(Integer.toString(c));
+
+           }
+       });
+       b3.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Integer a=Integer.parseInt(et1.getText().toString());
+               Integer b=Integer.parseInt(et2.getText().toString());
+               Integer c=a*b;
+               tv.setText(Integer.toString(c));
+
+           }
+       });
+       b4.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Integer a=Integer.parseInt(et1.getText().toString());
+               Integer b=Integer.parseInt(et2.getText().toString());
+               Integer c=a/b;
+               tv.setText(Integer.toString(c));
+
+           }
+       });
+   }
+}
+
+
+
+calcu g Xml
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity">
+
+   <TextView
+       android:id="@+id/tv"
+       android:layout_width="239dp"
+       android:layout_height="120dp"
+       android:layout_row="5"
+       android:layout_column="0"
+       app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="parent" />
+
+   <EditText
+       android:id="@+id/e1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_row="0"
+       android:layout_column="0"
+       android:ems="10"
+       android:inputType="numberSigned" />
+
+   <EditText
+       android:id="@+id/e2"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_row="1"
+       android:layout_column="0"
+       android:ems="10"
+       android:inputType="numberSigned" />
+
+   <Button
+       android:id="@+id/b1"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_row="2"
+       android:layout_column="0"
+       android:text="+" />
+
+   <Button
+       android:id="@+id/b2"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_row="2"
+       android:layout_column="1"
+       android:text="-" />
+
+   <Button
+       android:id="@+id/b3"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_row="3"
+       android:layout_column="0"
+       android:text="*" />
+
+   <Button
+       android:id="@+id/b4"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_row="3"
+       android:layout_column="1"
+       android:text="/" />
+
+</GridLayout>

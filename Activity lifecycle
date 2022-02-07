@@ -1,0 +1,63 @@
+Activity lifecycle
+Javacode:
+
+package com.example.lifecycle;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+   @Override
+   protected void onStart(){
+       super.onStart();
+       Log.d("Activity lifecycle","onStart is invoked");
+       Toast.makeText(MainActivity.this,"onStart is invoked",Toast.LENGTH_LONG).show();
+   }
+
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(savedInstanceState);
+       setContentView(R.layout.activity_main);
+       Log.d("Activity Lifecycle"+"","in method onCreate");
+       Toast.makeText(MainActivity.this,"onCreate is invoked",Toast.LENGTH_LONG).show();
+   }
+
+   @Override
+   protected void onStop(){
+       super.onStop();
+       Log.d("Activity Lifecycle"+"","in method onStop");
+       Toast.makeText(MainActivity.this,"onStop is invoked",Toast.LENGTH_LONG).show();
+   }
+
+   @Override
+   protected void onResume(){
+       super.onResume();
+       Log.d("Activity Lifecycle"+"","in method onResume");
+       Toast.makeText(MainActivity.this,"onResume is invoked",Toast.LENGTH_SHORT).show();
+   }
+
+   @Override
+   protected void onPause() {
+       super.onPause();
+       Log.d("Activity Lifecycle" + "", "in method onPause");
+       Toast.makeText(MainActivity.this, "onPause is invoked", Toast.LENGTH_SHORT).show();
+   }
+   @Override
+   protected void onDestroy() {
+       super.onDestroy();
+       Log.d("Activity Lifecycle" + "", "in method onDestroy");
+       Toast.makeText(MainActivity.this, "onDestroy is invoked", Toast.LENGTH_SHORT).show();
+   }
+}
+
+Lifecycle xml code:
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:app="http://schemas.android.com/apk/res-auto"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   tools:context=".MainActivity"/>
